@@ -68,6 +68,16 @@ publishing {
       }
     }
   }
+  repositories {
+    maven {
+      name = 'local'
+      url = project.localRepoPath.replace('~', System.properties['user.home'])
+    }
+  }
+}
+
+task localRelease() {
+  dependsOn "publishReleasePublicationToLocalRepository"
 }
 
 bintray {
