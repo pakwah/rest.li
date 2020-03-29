@@ -33,3 +33,10 @@ task NettyRunWar(type: JavaExec) {
   classpath = sourceSets.main.runtimeClasspath
   standardInput = System.in
 }
+
+task startFortunesServer(type: JavaExec) {
+  main = 'com.linkedin.restli.server.NettyStandaloneLauncher'
+  args = ['-port', '8080', '-packages', 'com.example.fortune.impl']
+  classpath = sourceSets.main.runtimeClasspath
+  standardInput = System.in
+}
